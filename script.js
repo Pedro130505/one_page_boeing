@@ -96,11 +96,15 @@ function initForms() {
       e.preventDefault();
       const nome = document.getElementById('aluno-nome').value.trim();
       const curso = document.getElementById('aluno-curso').value.trim();
+      const periodo = document.getElementById('aluno-periodo').value;
+      const email = document.getElementById('aluno-email').value.trim();
 
       const regData = {
         tipo: 'Aluno(a) UFMG',
         nome,
-        curso,
+        curso: `${curso} • ${periodo}`,
+        periodo,
+        email,
         id: generateTicketId('ALU'),
         dataRegistro: new Date().toISOString()
       };
