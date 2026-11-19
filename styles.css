@@ -1296,6 +1296,16 @@ a {
   line-height: 1.5;
 }
 
+.footer-logos-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  padding: 34px 0 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .footer-bottom {
   display: flex;
   align-items: center;
