@@ -86,72 +86,22 @@ function initTabs() {
 }
 
 /* ==========================================================================
-   3. GESTÃO DOS FORMULÁRIOS & GERAÇÃO DE CREDENCIAL
+   3. GESTÃO DO FORMULÁRIO DE ALUNO & GERAÇÃO DE CREDENCIAL
    ========================================================================== */
 function initForms() {
   const formAluno = document.getElementById('form-aluno');
-  const formProfessor = document.getElementById('form-professor');
-  const formComunidade = document.getElementById('form-comunidade');
 
   if (formAluno) {
     formAluno.addEventListener('submit', (e) => {
       e.preventDefault();
       const nome = document.getElementById('aluno-nome').value.trim();
-      const email = document.getElementById('aluno-email').value.trim();
       const curso = document.getElementById('aluno-curso').value.trim();
-      const periodo = document.getElementById('aluno-periodo').value;
 
       const regData = {
         tipo: 'Aluno(a) UFMG',
         nome,
-        email,
         curso,
-        periodo: periodo || 'Não informado',
         id: generateTicketId('ALU'),
-        dataRegistro: new Date().toISOString()
-      };
-
-      saveRegistration(regData);
-      showTicketModal(regData);
-    });
-  }
-
-  if (formProfessor) {
-    formProfessor.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nome = document.getElementById('prof-nome').value.trim();
-      const email = document.getElementById('prof-email').value.trim();
-      const depto = document.getElementById('prof-depto').value;
-      const lab = document.getElementById('prof-lab').value.trim();
-
-      const regData = {
-        tipo: 'Docente / Pesquisador',
-        nome,
-        email,
-        curso: `${depto}${lab ? ' • ' + lab : ''}`,
-        id: generateTicketId('DOC'),
-        dataRegistro: new Date().toISOString()
-      };
-
-      saveRegistration(regData);
-      showTicketModal(regData);
-    });
-  }
-
-  if (formComunidade) {
-    formComunidade.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nome = document.getElementById('com-nome').value.trim();
-      const email = document.getElementById('com-email').value.trim();
-      const empresa = document.getElementById('com-empresa').value.trim();
-      const cargo = document.getElementById('com-cargo').value.trim();
-
-      const regData = {
-        tipo: 'Engenheiro / Profissional',
-        nome,
-        email,
-        curso: `${empresa}${cargo ? ' (' + cargo + ')' : ''}`,
-        id: generateTicketId('ENG'),
         dataRegistro: new Date().toISOString()
       };
 
